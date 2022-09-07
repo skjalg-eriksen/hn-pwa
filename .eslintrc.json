@@ -33,7 +33,7 @@
         "spaced-comment": "error",
         "quotes": ["error", "single"],
         "no-duplicate-imports": "error",
-
+        "@typescript-eslint/indent": "off",
         "@typescript-eslint/no-unused-vars": ["warn"],
         "arrow-body-style": ["warn", "as-needed"],
         "arrow-parens": "warn",
@@ -54,6 +54,8 @@
         "react/jsx-filename-extension": [0],
         "react/jsx-indent": "off",
         "react/jsx-indent-props": "off",
+        "react/tsx-indent": "off",
+        "react/ts-indent": "off",
         "react/jsx-one-expression-per-line": "off",
         "react/jsx-props-no-spreading": "off",
         "react/jsx-uses-react": "off",
@@ -101,7 +103,10 @@
                 "extensions": [".js", ".jsx", ".ts", ".tsx", ".d.ts"]
             },
             "import/parser": {
-                "@typescript-eslint/parser": [".d.ts", ".ts", ".tsx"]
+                "@typescript-eslint/parser": [".js", ".jsx", ".ts", ".tsx", ".d.ts"]
+            },
+            "import/tailwindcss": {
+                "project": "tailwind.config.js"
             },
             "react": {
                 "version": "detect"

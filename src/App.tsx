@@ -1,3 +1,10 @@
-const App = () => <h1 className="text-3xl font-bold text-green-600 underline">Simple React Typescript Tailwind Sample</h1>;
+import './App.css';
+import Home from './Home';
+
+const App = () => (
+    <div className="App">
+        <Home />
+    </div>
+);
 
 export default App;
