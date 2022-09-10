@@ -23,7 +23,7 @@
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "project": "./tsconfig.json",
-        "ecmaFeatures": { "jsx": true },
+        "ecmaFeatures": { "jsx": true, "tsx": true },
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
@@ -94,6 +94,8 @@
         "SharedArrayBuffer": "readonly"
     },
     "settings": {
+        "snakecasejs/filter": ["ClassDeclaration", "NewExpression"],
+        "snakecasejs/whitelist": ["externalPath", "setNumber"],
         "import/resolver": {
             "typescript": {
                 "project": "tsconfig.json",

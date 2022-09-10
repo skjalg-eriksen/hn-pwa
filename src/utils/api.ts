@@ -1,10 +1,28 @@
-export const HN_HOST = 'https://hacker-news.firebase.io.com/v0';
+import { Story } from '../types';
 
-export const fetchTopStoriesIds = async () => {
+/* https://github.com/HackerNews/API */
+export const HN_HOST = 'https://hacker-news.firebaseio.com/v0';
+
+export const fetchTopStoriesIds = async (): Promise<number[]> => {
     const response = await fetch(`${HN_HOST}/topstories.json`);
-    const topstoriesIds = await response.json();
-    console.log(topstoriesIds);
-    return topstoriesIds;
+    const topStoriesIds = await response.json();
+    return topStoriesIds;
 };
 
-fetchTopStoriesIds();
+export const fetchStory = async (id: number): Promise<Story> => {
+    const response = await fetch(`${HN_HOST}/item/${id}.json`);
+    const storyData = await response.json();
+
+    const story: Story = {
+        id: storyData.id,
+        by: storyData.by,
+        title: storyData.title,
+        url: storyData.url,
+    };
+    return story;
+};
+
+export const fetchStories = async (ids: number[]) => {
+    const stories = await Promise.all(ids.map(fetchStory));
+    return stories;
+};
